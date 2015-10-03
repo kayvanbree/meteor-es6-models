@@ -2,24 +2,18 @@
 scuba:models is a package that utilizes ECMAScript2015 to add a model layer to Meteor. To use this just extend ScubaModel:
 
 ```javascript
-var Animals = Mongo.Collection('animals');
+Artists = new Mongo.Collection("artists");
 
-class Animal extends ScubaModel {
-  constructor(name) {
-    super(Animals);
+class Artist extends ScubaModel {
+  constructor(name, genre, status, notes){
+    super("artists", Artists);
+
     this.name = name;
-  }
-
-  get name(){
-    return this.name;
-  }
-
-  set name(value){
-    this.name = value;
-  }
-
-  doSomething(){
-    console.log(this.name + ": I'm doing something");
+    this.genre = genre;
+    this.status = status;
+    this.notes = notes;
   }
 }
+
+this.Artist = Artist;
 ```
